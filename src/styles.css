@@ -1,0 +1,249 @@
+:root {
+  --bg: #f4f4f4;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --buy: #18b26b;
+  --buyDark: #129257;
+  --sell: #e5e7eb;
+  --sellText: #111827;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.page {
+  min-height: 100vh;
+}
+
+/* Sticky balance bar */
+.balanceBar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 18px 12px;
+  background: linear-gradient(90deg, #19b86b, #22d3a6);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.balanceValue {
+  max-width: 1100px;
+  margin: 0 auto;
+  color: white;
+  font-size: 32px;
+  font-weight: 900;
+  text-align: center;
+}
+
+/* Products area */
+.productsWrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 18px 10px;
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+@media (max-width: 980px) {
+  .productsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 620px) {
+  .productsGrid { grid-template-columns: 1fr; }
+}
+
+.productCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 14px 14px;
+  text-align: center;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.06);
+}
+
+.imgWrap {
+  height: 120px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 8px;
+}
+
+.imgWrap img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+}
+
+.pName {
+  font-size: 18px;
+  font-weight: 800;
+  margin-top: 6px;
+}
+
+.pPrice {
+  margin-top: 6px;
+  color: var(--buy);
+  font-weight: 800;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 70px 1fr;
+  gap: 10px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.btn {
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 10px 10px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btnSell {
+  background: var(--sell);
+  color: var(--sellText);
+  border-color: #d1d5db;
+}
+
+.btnBuy {
+  background: var(--buy);
+  color: white;
+}
+
+.btnBuy:hover:not(:disabled) {
+  background: var(--buyDark);
+}
+
+.qtyInput {
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  text-align: center;
+  font-weight: 900;
+  outline: none;
+}
+
+.qtyInput:focus {
+  border-color: #94a3b8;
+}
+
+.miniInfo {
+  margin-top: 10px;
+  display: grid;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.warn {
+  color: #b45309;
+  font-weight: 900;
+}
+
+.ok b {
+  color: #111827;
+}
+
+/* Receipt */
+.receiptWrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 18px 60px;
+}
+
+.receiptCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 18px 14px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.06);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.receiptTitle {
+  margin: 0 0 14px 0;
+  font-size: 28px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.emptyReceipt {
+  color: var(--muted);
+  text-align: center;
+  padding: 18px 0;
+}
+
+.receiptList {
+  display: grid;
+  gap: 10px;
+  padding: 6px 6px 10px;
+}
+
+.receiptRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.receiptLeft {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.receiptName {
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.receiptQty {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.receiptRight {
+  font-weight: 900;
+  color: var(--buy);
+}
+
+.receiptDivider {
+  height: 1px;
+  background: var(--line);
+  margin: 10px 0;
+}
+
+.receiptTotalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px;
+}
+
+.receiptTotalLabel {
+  font-weight: 900;
+  color: #1f2937;
+}
+
+.receiptTotalValue {
+  font-weight: 900;
+  color: var(--buy);
+}
